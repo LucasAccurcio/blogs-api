@@ -12,12 +12,12 @@ module.exports = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await Users.findOne({ where: { email } });
-    const userData = user.dataValues;
     const isLoginValid = loginValidation(user, password);
     if (isLoginValid.message) {
       return res.status(400).json({ message: isLoginValid.message });
     }
-
+    
+    const userData = user.dataValues;
     const secret = process.env.JWT_SECRET;
     const jwtConfig = { expiresIn: '7d', algorithm: 'HS256' };
     const token = jwt.sign(userData, secret, jwtConfig);
