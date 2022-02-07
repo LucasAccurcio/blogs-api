@@ -10,7 +10,6 @@ const checkNumbersOfConstants = (body) => {
 const isDisplayNameValid = (name) => {
   const MIN_CHARACTERS = 8;
   if (!name || typeof name !== 'string' || name.length < MIN_CHARACTERS) {
-    console.log('2º teste - verifica tamanho do displayName');
     return {
       code: 400,
       message: '"displayName" length must be at least 8 characters long',
@@ -46,8 +45,6 @@ const isPasswordValid = (password) => {
 const propertiesValidation = (displayName, email, password) => {
     const nameIsValid = isDisplayNameValid(displayName);
     if (nameIsValid.code) {
-      console.log('O retorno será');
-      console.log(nameIsValid);
       return nameIsValid;
     }
 
@@ -62,7 +59,6 @@ const propertiesValidation = (displayName, email, password) => {
 
 module.exports = (req, res, next) => {
   try {
-    console.log('Entrou no MIDDLEWARE');
     const initialValidation = checkNumbersOfConstants(req.body);
     if (initialValidation.code) {
       return res.status(initialValidation.code).json({ message: initialValidation.message });

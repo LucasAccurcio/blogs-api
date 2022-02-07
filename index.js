@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 app.post('/user', routes.userValidations, routes.createUsers);
 
-app.post('/login', routes.validateJWT, routes.login);
+app.post('/login', routes.loginValidation, routes.login);
 
 app.get('/user', routes.validateJWT, routes.getUsers);
 
