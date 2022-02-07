@@ -9,8 +9,8 @@ const checkNumbersOfConstants = (body) => {
 
 const isDisplayNameValid = (name) => {
   const MIN_CHARACTERS = 8;
-  console.log(name);
   if (!name || typeof name !== 'string' || name.length < MIN_CHARACTERS) {
+    console.log('2º teste - verifica tamanho do displayName');
     return {
       code: 400,
       message: '"displayName" length must be at least 8 characters long',
@@ -32,9 +32,6 @@ const isEmailValid = (email) => {
   if (!emailRegex.test(email)) {
     return { code: 400, message: '"email" must be a valid email' };
   }
-
-  // validar se imagem já existe no banco de dados
-  // return { code: 409, message: 'User already registered' };
   return true;
 };
 
@@ -48,7 +45,11 @@ const isPasswordValid = (password) => {
 
 const propertiesValidation = (displayName, email, password) => {
     const nameIsValid = isDisplayNameValid(displayName);
-    if (nameIsValid.code) return nameIsValid;
+    if (nameIsValid.code) {
+      console.log('O retorno será');
+      console.log(nameIsValid);
+      return nameIsValid;
+    }
 
     const emailIsValid = isEmailValid(email);
     if (emailIsValid.code) return emailIsValid;
@@ -59,17 +60,19 @@ const propertiesValidation = (displayName, email, password) => {
     return true;
 };
 
-module.exports = async (req, res, next) => {
+module.exports = (req, res, next) => {
   try {
+    console.log('Entrou no MIDDLEWARE');
     const initialValidation = checkNumbersOfConstants(req.body);
     if (initialValidation.code) {
-      return res.status(initialValidation.code).json(initialValidation.message);
+      return res.status(initialValidation.code).json({ message: initialValidation.message });
     }
 
     const { displayName, email, password } = initialValidation;
 
     const isValid = propertiesValidation(displayName, email, password);
-    if (isValid.code) return res.status(isValid.code).json(isValid.message);
+    req.body = initialValidation;
+    if (isValid.code) return res.status(isValid.code).json({ message: isValid.message });
 
     next();
   } catch (err) {
