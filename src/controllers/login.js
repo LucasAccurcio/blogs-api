@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await Users.findOne({ where: { email } });
-
+    const userData = user.dataValues;
     const isLoginValid = loginValidation(user, password);
     if (isLoginValid.message) {
       return res.status(400).json({ message: isLoginValid.message });
@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
 
     const secret = process.env.JWT_SECRET;
     const jwtConfig = { expiresIn: '7d', algorithm: 'HS256' };
-    const token = jwt.sign({ data: user }, secret, jwtConfig);
+    const token = jwt.sign(userData, secret, jwtConfig);
 
     res.status(200).json({ token });
   } catch (err) {
