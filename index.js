@@ -30,7 +30,7 @@ app.post('/post', routes.validateJWT, routes.blogPostsValidations, routes.create
 
 app.get('/post', routes.validateJWT, routes.getBlogPosts);
 
-// app.get('/post/:id', routes.validateJWT, routes.getBlogPostsById); 
+app.get('/post/:id', routes.validateJWT, routes.getBlogPostsById); 
 
 // app.put('/post/:id', routes.validateJWT, routes.updateBlogPost);
 

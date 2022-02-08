@@ -12,12 +12,14 @@ const createCategory = require('../controllers/createCategory');
 const createBlogPosts = require('../controllers/createBlogPost');
 const userValidations = require('../controllers/middlewares/userValidations');
 const loginValidation = require('../controllers/middlewares/loginValidations');
+const getBlogPostsById = require('../controllers/getBlogPostsById');
 const categoryValidations = require('../controllers/middlewares/categoryValidations');
 const blogPostsValidations = require('../controllers/middlewares/blogPostsValidations');
 
 module.exports = {
   blogPostsValidations,
   categoryValidations,
+  getBlogPostsById,
   createBlogPosts,
   loginValidation,
   userValidations,
