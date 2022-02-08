@@ -6,6 +6,7 @@ const removeUser = require('../controllers/removeUser');
 const createUsers = require('../controllers/createUser');
 const getUserById = require('../controllers/getUserById');
 const validateJWT = require('./auth/validateJWT');
+const getCategories = require('../controllers/getCategories');
 const createCategory = require('../controllers/createCategory');
 const userValidations = require('../controllers/middlewares/userValidations');
 const loginValidation = require('../controllers/middlewares/loginValidations');
@@ -16,6 +17,7 @@ module.exports = {
   loginValidation,
   userValidations,
   createCategory,
+  getCategories,
   createUsers,
   getUserById,
   validateJWT,

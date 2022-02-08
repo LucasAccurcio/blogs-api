@@ -22,7 +22,7 @@ app.delete('/user/me', routes.validateJWT, routes.removeUser);
 
 app.post('/categories', routes.validateJWT, routes.categoryValidations, routes.createCategory);
 
-// app.get('/categories', routes.validateJWT, routes.getAllCategories);
+app.get('/categories', routes.validateJWT, routes.getCategories);
 
 // app.post('/post', routes.validateJWT, routes.createBlogPosts);
 
