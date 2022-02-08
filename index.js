@@ -28,7 +28,7 @@ app.post('/post', routes.validateJWT, routes.blogPostsValidations, routes.create
 
 // app.get('/post/search/', routes.validateJWT, routes.searchBlogPosts);
 
-// app.get('/post', routes.validateJWT, routes.getAllBlogPosts);
+app.get('/post', routes.validateJWT, routes.getBlogPosts);
 
 // app.get('/post/:id', routes.validateJWT, routes.getBlogPostsById); 
 
