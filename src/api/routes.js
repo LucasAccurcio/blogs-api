@@ -1,23 +1,27 @@
+const error = require('../controllers/middlewares/error');
 const login = require('../controllers/login');
-const createUsers = require('../controllers/createUser');
+const joiError = require('../controllers/middlewares/joiErrors');
 const getUsers = require('../controllers/getUsers');
-const getUserById = require('../controllers/getUserById');
 const removeUser = require('../controllers/removeUser');
+const createUsers = require('../controllers/createUser');
+const getUserById = require('../controllers/getUserById');
+const validateJWT = require('./auth/validateJWT');
+const createCategory = require('../controllers/createCategory');
 const userValidations = require('../controllers/middlewares/userValidations');
 const loginValidation = require('../controllers/middlewares/loginValidations');
-const error = require('../controllers/middlewares/error');
-const joiError = require('../controllers/middlewares/joiErrors');
-const validateJWT = require('./auth/validateJWT');
+const categoryValidations = require('../controllers/middlewares/categoryValidations');
 
 module.exports = {
-  login,
-  createUsers,
-  getUsers,
-  getUserById,
-  removeUser,
-  userValidations,
+  categoryValidations,
   loginValidation,
+  userValidations,
+  createCategory,
+  createUsers,
+  getUserById,
   validateJWT,
+  removeUser,
+  getUsers,
   joiError,
+  login,
   error,
 };
