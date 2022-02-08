@@ -22,7 +22,7 @@ module.exports = async (req, res, next) => {
         .json({ message: 'Invalid login or password' });
     }
 
-    req.user = user;
+    req.body = user;
 
     next();
   } catch (err) {
