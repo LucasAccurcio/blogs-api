@@ -8,12 +8,16 @@ const getUserById = require('../controllers/getUserById');
 const validateJWT = require('./auth/validateJWT');
 const getCategories = require('../controllers/getCategories');
 const createCategory = require('../controllers/createCategory');
+const createBlogPosts = require('../controllers/createBlogPost');
 const userValidations = require('../controllers/middlewares/userValidations');
 const loginValidation = require('../controllers/middlewares/loginValidations');
 const categoryValidations = require('../controllers/middlewares/categoryValidations');
+const blogPostsValidations = require('../controllers/middlewares/blogPostsValidations');
 
 module.exports = {
+  blogPostsValidations,
   categoryValidations,
+  createBlogPosts,
   loginValidation,
   userValidations,
   createCategory,

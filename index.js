@@ -24,7 +24,7 @@ app.post('/categories', routes.validateJWT, routes.categoryValidations, routes.c
 
 app.get('/categories', routes.validateJWT, routes.getCategories);
 
-// app.post('/post', routes.validateJWT, routes.createBlogPosts);
+app.post('/post', routes.validateJWT, routes.blogPostsValidations, routes.createBlogPosts);
 
 // app.get('/post/search/', routes.validateJWT, routes.searchBlogPosts);
 
