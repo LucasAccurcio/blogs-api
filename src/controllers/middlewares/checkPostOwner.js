@@ -1,6 +1,7 @@
 const { BlogPosts } = require('../../models');
 
 module.exports = async (req, res, next) => {
+  try {
   const getPostById = await BlogPosts.findOne({
     where: { id: req.params.id },
   });
@@ -10,4 +11,7 @@ module.exports = async (req, res, next) => {
   }
 
   next();
+  } catch (err) {
+    next(err);
+  }
 };

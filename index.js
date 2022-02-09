@@ -38,7 +38,11 @@ routes.checkPostOwner,
 routes.updatePostValidations,
 routes.updateBlogPost);
 
-app.delete('/post/:id', routes.validateJWT, routes.removerBlogPost);
+app.delete('/post/:id',
+routes.validateJWT,
+routes.checkBlogPostById,
+routes.checkPostOwner,
+routes.removeBlogPost);
 
 app.use(routes.joiError);
 

@@ -11,11 +11,12 @@ const getCategories = require('../controllers/getCategories');
 const checkPostOwner = require('../controllers/middlewares/checkPostOwner');
 const updateBlogPost = require('../controllers/updateBlogPost');
 const createCategory = require('../controllers/createCategory');
-const removerBlogPost = require('../controllers/removerBlogPost');
+const removeBlogPost = require('../controllers/removeBlogPost');
 const createBlogPosts = require('../controllers/createBlogPost');
 const userValidations = require('../controllers/middlewares/userValidations');
 const loginValidation = require('../controllers/middlewares/loginValidations');
 const getBlogPostsById = require('../controllers/getBlogPostsById');
+const checkBlogPostById = require('../controllers/middlewares/checkBlogPostById');
 const categoryValidations = require('../controllers/middlewares/categoryValidations');
 const blogPostsValidations = require('../controllers/middlewares/blogPostsValidations');
 const updatePostValidations = require('../controllers/middlewares/updatePostValidations');
@@ -24,8 +25,9 @@ module.exports = {
   updatePostValidations,
   blogPostsValidations,
   categoryValidations,
+  checkBlogPostById,
   getBlogPostsById,
-  removerBlogPost,
+  removeBlogPost,
   createBlogPosts,
   loginValidation,
   userValidations,
