@@ -2,7 +2,6 @@ const { Users } = require('../models');
 
 module.exports = async (req, res) => {
   try {
-    console.log(req.body);
     const user = await Users.create(req.body);
 
     if (!user) throw Error;

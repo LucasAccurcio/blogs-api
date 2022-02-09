@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
         { model: Categories, as: 'categories', through: { attributes: [] } },
       ],
     });
-    console.log(getAllBlogPosts);
+
     if (!getAllBlogPosts) throw Error;
 
     res.status(200).json(getAllBlogPosts);

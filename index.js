@@ -32,9 +32,13 @@ app.get('/post', routes.validateJWT, routes.getBlogPosts);
 
 app.get('/post/:id', routes.validateJWT, routes.getBlogPostsById); 
 
-// app.put('/post/:id', routes.validateJWT, routes.updateBlogPost);
+app.put('/post/:id',
+routes.validateJWT,
+routes.checkPostOwner,
+routes.updatePostValidations,
+routes.updateBlogPost);
 
-// app.delete('/post/:id', routes.validateJWT, routes.removerBlogPost);
+app.delete('/post/:id', routes.validateJWT, routes.removerBlogPost);
 
 app.use(routes.joiError);
 
