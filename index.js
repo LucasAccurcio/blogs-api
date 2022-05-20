@@ -1,14 +1,16 @@
-require('dotenv').config();
-// Será que é necessário chamar aqui?
 const express = require('express');
+const swaggerUi = require('swagger-ui-express');
 const bodyParser = require('body-parser');
 const routes = require('./src/api/routes.js');
+const swaggerJson = require('./swagger.json');
 
 const PORT = process.env.PORT || 3000;
 
 const app = express();
 
 app.use(bodyParser.json());
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerJson));
 
 app.post('/user', routes.userValidations, routes.createUsers);
 
