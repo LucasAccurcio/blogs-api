@@ -54,19 +54,30 @@ Neste projeto, consegui desenvolver as seguintes habilidades:
 4. Inicializando a API:
   - `npm start`
 
-4. Abra o navegador e acesse a rota:
+5. Abra o navegador e acesse a rota:
   - `http://localhost:3000/api-docs`
 
   - Irá abrir a seguinte página:
+ 
   ![Documentacao](/images/rotas-swagger.png)
 
   - Esse é a documentação da API, feita com o auxílio da biblioteca `Swagger`;
+
   - Através da documentação, com o serviço iniciado, também é possível testar as rotas.
   
-  1. Siga para rota POST /user e cadastre um usuário.
-  2. Faça login com esse usuário.
-  3. A API irá responder com um "token", copie o conteúdo do "token", apenas o que se encontra entre ""
-  4. Clique no botão "Authoroze" e adicione o conteúdo do token no campo "value".
-  5. Pronto, agora todas as rotas possuem autenticação e prontas para serem testadas.
-  6. Caso o token não seja passado, somente a rota de cadastro de usuário irá funcionar.
+  ## Instrução de como utilizar a API dentro da documentação:
+   1. Siga para rota POST /user e cadastre um usuário.
+
+   3. Faça login com esse usuário.
+
+   5. A API irá responder com um "token", copie o conteúdo do "token", apenas o que se encontra entre ""
+
+   7. Clique no botão "Authoroze" e adicione o conteúdo do token no campo "value".
+
+   9. Pronto, agora todas as rotas possuem autenticação e prontas para serem testadas.
+
+   11. Caso o token não seja passado, somente a rota de cadastro de usuário irá funcionar.
+
+  ## Aqui eu testo a aplicação utilizando o Postman
+  [Post LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:6899074822807371777/)
 
